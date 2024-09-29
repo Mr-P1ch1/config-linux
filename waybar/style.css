@@ -1,0 +1,91 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px; /* Aumenta el tamaño de la fuente */
+    border: none;
+    border-radius: 0px;
+    min-height: 10px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#workspaces {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
+    padding: 5px 8px;
+    margin: 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar el módulo */
+   
+}
+
+#workspaces button {
+    color: #f8f8f2; /* Blanco para workspaces sin uso */
+    background: transparent;
+    margin: 0 4px; /* Espaciado entre botones */
+    border-radius: 6px;
+    padding: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+#workspaces button.active {
+    color: #50fa7b; /* Verde para el workspace activo */
+    background-color: rgba(80, 250, 123, 0.15); /* Fondo verde semi-transparente para el activo */
+}
+
+#workspaces button.inactive {
+    color: #f8f8f2; /* Blanco para workspaces sin uso */
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efecto hover suave */
+    color: #8be9fd; /* Color azul claro al pasar por encima */
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#backlight,
+#tray,
+#custom-launcher,
+#custom-vpn,
+#custom-settarget,
+#custom-power,
+#custom-capture,
+#custom-bluetooth,
+#custom-media {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro para mejor legibilidad */
+    padding: 5px 8px;
+    margin: 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar módulos */
+}
+
+#battery.charging {
+    color: #26A65B;
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        color: #ffffff;
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.7);
+    }
+}
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+#pulseaudio.muted {
+    color: #90b1b1;
+}
+

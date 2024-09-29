@@ -1,0 +1,155 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 3,
+  "modules-left": [
+    "custom/launcher",
+    "custom/vpn",
+    "network",
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/settarget",
+    "custom/media",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "custom/capture",
+    "custom/bluetooth",
+    "custom/displays",
+    "custom/power"
+  ],
+
+"custom/launcher": {
+    "format": "  ",
+    "tooltip": "Limpiar Target",
+    "on-click": "echo 'No target' > ~/.config/bin/target",
+    "padding": 5
+},
+
+ 
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "default": "󱥸",
+        "active": "󱥸",
+        "urgent": "󱥸"
+    },
+    "on-click": "hyprctl dispatch workspace {name}",
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "hyprctl dispatch workspace r+1",
+    "all-outputs": true,
+    "persistent-workspaces": {
+        "*": 5
+    },
+    "padding": 5,
+    "spacing": 3
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "padding": 5
+  },
+
+  "network": {
+
+    "format-wifi": "<span font='Hack Nerd Font'>   </span> {ipaddr}",
+    "format-ethernet": "<span font='Hack Nerd Font'>   </span> {ipaddr}",
+    "tooltip-format": "Adaptador: {ifname}\nRed: {essid}\nIP: {ipaddr}\nSeñal: {signalStrength}%",
+    "on-click": "nm-connection-editor",
+    "padding": 5
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon} ",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 5,
+    "padding": 5
+  },
+
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-click": "~/.config/waybar/scripts/brightness_popup.sh",
+    "padding": 5
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["  ", "  ", "  "]
+    },
+    "on-click": "~/.config/waybar/scripts/volume_popup.sh",
+    "padding": 5
+  },
+
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/custom_media.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl next",
+    "on-click-right": "playerctl previous",
+    "padding": 5
+  },
+
+  "custom/vpn": {
+    "exec": "~/.config/waybar/scripts/vpn_status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": "Estado de la VPN",
+    "on-click": "gnome-control-center network",
+    "padding": 5
+  },
+
+  "custom/settarget": {
+    "exec": "~/.config/waybar/scripts/set_target.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/manage_target.sh",
+    "padding": 5
+  },
+
+"custom/bluetooth": {
+    "format": "{icon}",
+    "exec": "~/.config/waybar/scripts/bluetooth_control.sh",
+    "interval": 10,
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/bluetooth_menu.sh",
+    "tooltip": true,
+    "padding": 5
+},
+
+
+
+
+  "custom/capture": {
+    "format": " 󰄄 ",
+    "tooltip": "Capturar Pantalla",
+    "on-click": "~/.config/waybar/scripts/capture_screenshot.sh",
+    "padding": 5
+  },
+  
+ "custom/power": {
+    "format": " ⏻ ",
+    "tooltip": "Menú de Energía",
+    "on-click": "~/.config/waybar/scripts/manage_power.sh",
+    "padding": 5
+ }
+
+}
