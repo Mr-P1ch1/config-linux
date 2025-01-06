@@ -6,7 +6,7 @@ sudo pacman -Syu --needed waybar kitty neovim zsh git wget
 
 # 2. Clonar el repositorio de configuraciones
 echo "Clonando el repositorio de configuraciones..."
-git clone https://github.com/alejandro001100/config-linux.git ~/config-linux
+git clone https://github.com/Mr-P1ch1/config-linux.git ~/config-linux
 
 # 3. Copiar las configuraciones a sus respectivas ubicaciones
 echo "Copiando configuraciones a los directorios correspondientes..."
